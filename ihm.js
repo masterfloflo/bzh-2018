@@ -1,6 +1,8 @@
 var service = require('./service');
 
 exports.start = function () {
+menuPrincipal();
+    function menuPrincipal() {
 
     (console.log(`*************************
     1. Rafraichir les données
@@ -26,7 +28,7 @@ exports.start = function () {
         }
         else if (`${saisie}` == 2) {
             service.listerSessions(function (nb) {
-                console.log(nb, 'voici la liste')
+                console.log(nb, 'voici la liste des formateurs')
             })
             menu.close();
 
@@ -36,7 +38,8 @@ exports.start = function () {
         }
         else {
             console.log("Ce chiffre ne renvoie rien, try again")
+            menuPrincipal()
         }
     })
-
+    }
 }
